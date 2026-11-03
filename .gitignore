@@ -1,0 +1,20 @@
+# Credenciales reales (Secret de PayPal, contraseña de la BD). NUNCA se suben.
+config.local.php
+
+# PDFs que sube el admin desde el panel: no van al repositorio...
+storage/recursos/*
+# ...excepto el .htaccess que los protege, el .gitkeep y los 7 PDFs de ejemplo del seed
+!storage/recursos/.htaccess
+!storage/recursos/.gitkeep
+!storage/recursos/bd-guia-sql.pdf
+!storage/recursos/calculo-formulario.pdf
+!storage/recursos/calculo-integrales.pdf
+!storage/recursos/calculo-unidad1.pdf
+!storage/recursos/conta-estados.pdf
+!storage/recursos/estructuras-arboles.pdf
+!storage/recursos/fisica-relatividad.pdf
+
+# Archivos del sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
