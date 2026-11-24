@@ -82,6 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear cuenta · Aula</title>
     <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?= asset('js/validacion.js') ?>"></script>
+    <script src="<?= asset('js/password.js') ?>"></script>
 </head>
 
 <body class="auth-pagina">

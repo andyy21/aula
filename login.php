@@ -47,6 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión · Aula</title>
     <link rel="stylesheet" href="<?= asset('styles.css') ?>">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?= asset('js/validacion.js') ?>"></script>
+    <script src="<?= asset('js/password.js') ?>"></script>
 </head>
 
 <body class="auth-pagina">
@@ -66,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </label>
             <label class="campo">
                 <span>Contraseña</span>
-                <input type="password" name="password" required>
+                <input type="password" name="password" data-regla="vacio" required>
             </label>
             <button type="submit" class="btn-principal">Entrar</button>
         </form>

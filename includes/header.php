@@ -14,6 +14,8 @@ $activo  = $activo ?? '';
     <title><?= e($titulo) ?> · Aula</title>
     <link rel="stylesheet" href="<?= asset('styles.css') ?>">
     <script src="<?= asset('lucide.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="<?= asset('js/validacion.js') ?>"></script>
 </head>
 
 <body>
@@ -22,7 +24,7 @@ $activo  = $activo ?? '';
         <main class="contenido">
             <div class="barrarriba">
                 <div class="topbar-fecha">
-                    <p><?= e(fecha_larga()) ?></p>
+                    <p id="fecha"><?= e(fecha_larga()) ?></p>
                     <p class="hora" id="reloj"><?= date('H:i') ?></p>
                 </div>
                 <div class="avatar-usuario" title="<?= e($usuario['nombre']) ?>"><?= e(iniciales($usuario['nombre'])) ?></div>

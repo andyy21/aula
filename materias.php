@@ -31,6 +31,13 @@ unset($_SESSION['flash']);
 ?>
             <h1>Mis Materias</h1>
 
+            <form class="buscador-form" role="search" action="#">
+                <label class="campo buscador">
+                    <span>Buscar materia o profesor</span>
+                    <input type="text" id="buscar-materia" name="q" maxlength="100" autocomplete="off" placeholder="Ej. Matemáticas">
+                </label>
+            </form>
+
             <?php if ($flash): ?>
                 <div class="alerta <?= $flash[0] === 'ok' ? 'alerta-ok' : 'alerta-error' ?>"><?= e($flash[1]) ?></div>
             <?php endif; ?>
@@ -69,4 +76,5 @@ unset($_SESSION['flash']);
                     <?php endforeach; ?>
                 </section>
             <?php endif; ?>
+            <script src="<?= asset('js/buscador.js') ?>"></script>
 <?php require __DIR__ . '/includes/footer.php'; ?>

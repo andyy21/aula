@@ -45,6 +45,63 @@ if ($resto) {
 }
 ?>
             <h1>Bienvenido a tu Aula de Nuevo!</h1>
+
+            <section class="carrusel" tabindex="0" aria-roledescription="carrusel" aria-label="Avisos destacados">
+                <div class="carrusel-progreso" aria-hidden="true"><span></span></div>
+                <div class="carrusel-pista">
+                    <article class="carrusel-slide">
+                        <img src="<?= asset('fondo1.png') ?>" alt="Escritorio con lámpara, calendario y libros abiertos">
+                        <div class="carrusel-texto">
+                            <span class="carrusel-etiqueta"><i data-lucide="sparkles"></i> Bienvenida</span>
+                            <h3>Tu aula, siempre a la mano</h3>
+                            <p>Revisa tus materias, tu horario y tus recursos en un solo lugar.</p>
+                            <a class="carrusel-enlace" href="<?= url('materias.php') ?>">Ver mis materias</a>
+                        </div>
+                    </article>
+                    <article class="carrusel-slide">
+                        <img src="<?= asset('fondo2.png') ?>" alt="Escritorio de estudio con útiles y plantas">
+                        <div class="carrusel-texto">
+                            <span class="carrusel-etiqueta"><i data-lucide="file-text"></i> Recursos</span>
+                            <h3>Paquetes de recursos</h3>
+                            <p>Resúmenes, guías y ejercicios de tus materias, listos para descargar.</p>
+                            <a class="carrusel-enlace" href="<?= url('recursos.php') ?>">Explorar recursos</a>
+                        </div>
+                    </article>
+                    <article class="carrusel-slide">
+                        <img src="<?= asset('fondo3.png') ?>" alt="Escritorio con libros apilados y un gato dormido">
+                        <div class="carrusel-texto">
+                            <span class="carrusel-etiqueta"><i data-lucide="calendar"></i> Horario</span>
+                            <h3>Organiza tu horario</h3>
+                            <p>Consulta tus clases de la semana y no te pierdas ninguna.</p>
+                            <a class="carrusel-enlace" href="<?= url('horario.php') ?>">Ver horario</a>
+                        </div>
+                    </article>
+                    <article class="carrusel-slide">
+                        <img src="<?= asset('fondo4.png') ?>" alt="Escritorio con cuaderno, taza y libros">
+                        <div class="carrusel-texto">
+                            <span class="carrusel-etiqueta"><i data-lucide="shopping-cart"></i> Pago seguro</span>
+                            <h3>Compra segura con PayPal</h3>
+                            <p>Desbloquea paquetes completos y descarga tu recibo en PDF.</p>
+                            <a class="carrusel-enlace" href="<?= url('carrito.php') ?>">Ir al carrito</a>
+                        </div>
+                    </article>
+                    <article class="carrusel-slide">
+                        <img src="<?= asset('fondo5.png') ?>" alt="Escritorio de estudio con material escolar">
+                        <div class="carrusel-texto">
+                            <span class="carrusel-etiqueta"><i data-lucide="receipt"></i> Historial</span>
+                            <h3>Tus compras y recibos</h3>
+                            <p>Todo lo que has comprado queda guardado en tu historial.</p>
+                            <a class="carrusel-enlace" href="<?= url('compras.php') ?>">Mis compras</a>
+                        </div>
+                    </article>
+                </div>
+                <button type="button" class="carrusel-flecha carrusel-ant" aria-label="Aviso anterior"><i data-lucide="chevron-left"></i></button>
+                <button type="button" class="carrusel-flecha carrusel-sig" aria-label="Aviso siguiente"><i data-lucide="chevron-right"></i></button>
+                <button type="button" class="carrusel-pausa" aria-label="Pausar carrusel"><i data-lucide="pause" class="ic-pausa"></i><i data-lucide="play" class="ic-play"></i></button>
+                <span class="carrusel-contador" aria-hidden="true"></span>
+                <div class="carrusel-puntos"></div>
+            </section>
+
             <div class="dashboard-grid">
                 <!-- Las tarjetas Resumen, Próximas Clases, Tareas, Avisos y Progreso siguen con
                      datos de ejemplo. Se vuelven dinámicas en una fase opcional (tareas, notas, avisos). -->
@@ -135,24 +192,26 @@ if ($resto) {
                         </section>
                     </div>
 
-                    <div class="notas-grid">
+                    <div class="notas-grid" data-usuario="<?= (int)$usuario['id'] ?>">
                         <div class="nota">
                             <h4>Idea</h4>
-                            <textarea placeholder="Ej. Revisar apuntes de la clase de hoy."></textarea>
+                            <textarea data-nota="idea" placeholder="Ej. Revisar apuntes de la clase de hoy."></textarea>
                         </div>
                         <div class="nota">
                             <h4>Recordatorio</h4>
-                            <textarea placeholder="Ej. Entregar proyecto final el 10/10/2026."></textarea>
+                            <textarea data-nota="recordatorio" placeholder="Ej. Entregar proyecto final el 10/10/2026."></textarea>
                         </div>
                         <div class="nota">
                             <h4>Nota</h4>
-                            <textarea placeholder="Ej. Reunión con el profesor el 05/10/2026."></textarea>
+                            <textarea data-nota="nota" placeholder="Ej. Reunión con el profesor el 05/10/2026."></textarea>
                         </div>
                         <div class="nota">
                             <h4>Pendiente</h4>
-                            <textarea placeholder="Ej. Revisar el informe de laboratorio."></textarea>
+                            <textarea data-nota="pendiente" placeholder="Ej. Revisar el informe de laboratorio."></textarea>
                         </div>
                     </div>
                 </div>
             </div>
+            <script src="<?= asset('js/carrusel.js') ?>"></script>
+            <script src="<?= asset('js/notas.js') ?>"></script>
 <?php require __DIR__ . '/includes/footer.php'; ?>
